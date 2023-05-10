@@ -10,7 +10,6 @@ defmodule AflFantasyScraper.MixProject do
       description: description(),
       package: package(),
       deps: deps(),
-      name: "AFL Scraper",
       source_url: "https://github.com/Tarnage/afl_fantasy_scraper"
     ]
   end
@@ -44,8 +43,6 @@ defmodule AflFantasyScraper.MixProject do
 
   defp package() do
     [
-      # This option is only needed when you don't want to use the OTP application name
-      name: "AFL Scraper",
       # These are the default files included in the package
       files: ~w(lib .formatter.exs mix.exs README*),
       licenses: ["Apache-2.0"],
