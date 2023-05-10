@@ -47,7 +47,7 @@ defmodule AflFantasyScraper.MixProject do
       # This option is only needed when you don't want to use the OTP application name
       name: "AFL Scraper",
       # These are the default files included in the package
-      files: ~w(lib priv .formatter.exs mix.exs README* readme*),
+      files: ~w(lib .formatter.exs mix.exs README*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/Tarnage/afl_fantasy_scraper"}
     ]
