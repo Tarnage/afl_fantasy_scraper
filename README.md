@@ -10,7 +10,7 @@ by adding `afl_fantasy_scraper` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:afl_fantasy_scraper, "~> 0.1.0"}
+    {:afl_fantasy_scraper, "~> 0.0.1"}
   ]
 end
 ```
@@ -18,16 +18,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/afl_fantasy_scraper>.
-
-## Running the Crawler
-
-1. Load module into iex
-```bash
->% iex.bat -S mix # for windows
->% iex -S mix
-```
-
-2. Run scraper
-```elixir
-Crawly.Engine.start_spider(AflFantasyScraper.BasicSpider)
-```
