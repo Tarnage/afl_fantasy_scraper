@@ -42,6 +42,20 @@ defmodule AflFantasyScraper.PlayerScores.PlayerScores do
       consistency
     ]
     |> Enum.map(&String.trim/1)
+
+    %{
+      :player => "Player",
+      :position => "Position",
+      :team => team,
+      :price => price,
+      :games => games,
+      :total => total,
+      :avg => avg,
+      :three_rnd_avg => avg_3_rnd,
+      :dollar_avg => dollar_avg,
+      :dollar_three_rnd_avg => avg_3_rnd_dollar,
+      :consistency => consistency
+    }
   end
 
   def parse_player(
@@ -73,5 +87,19 @@ defmodule AflFantasyScraper.PlayerScores.PlayerScores do
       consistency
     ]
     |> Enum.map(&String.trim/1)
+
+    %{
+      :player => name,
+      :position => position,
+      :team => team,
+      :price => price,
+      :games => games,
+      :total => total,
+      :avg => avg,
+      :three_rnd_avg => avg_3_rnd,
+      :dollar_avg => dollar_avg,
+      :dollar_three_rnd_avg => avg_3_rnd_dollar,
+      :consistency => consistency
+    }
   end
 end

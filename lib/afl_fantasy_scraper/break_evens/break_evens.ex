@@ -27,6 +27,17 @@ defmodule AflFantasyScraper.BreakEvens.BreakEvens do
       ) do
     [player, "Position", team, price, games, average, breakeven, likelihood]
     |> Enum.map(&String.trim/1)
+
+    %{
+      :player => player,
+      :position => "Position",
+      :team => team,
+      :price => price,
+      :games => games,
+      :avg => average,
+      :breakeven => breakeven,
+      :likelihood => likelihood
+    }
   end
 
   def parse_row(
@@ -43,5 +54,16 @@ defmodule AflFantasyScraper.BreakEvens.BreakEvens do
       ) do
     [name, position, team, price, games, average, breakeven, likelihood]
     |> Enum.map(&String.trim/1)
+
+    %{
+      :player => name,
+      :position => position,
+      :team => team,
+      :price => price,
+      :games => games,
+      :avg => average,
+      :breakeven => breakeven,
+      :likelihood => likelihood
+    }
   end
 end
