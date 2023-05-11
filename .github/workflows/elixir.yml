@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - uses: actions/checkout@v3
     - name: Set up Elixir
-    
       uses: erlef/setup-beam@v1
       with:
         elixir-version: '1.14.4' # Define the elixir version [required]
@@ -49,9 +49,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-          
-      - name: Install dependencies
-        run: mix deps.get
 
       - name: Publish package to hex.pm
         uses: erlangpack/github-action@v3
