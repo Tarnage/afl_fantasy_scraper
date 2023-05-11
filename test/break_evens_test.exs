@@ -36,8 +36,16 @@ defmodule AflFantasyScraperTest.BreakEvensTest do
           ]}
        ]}
 
-    assert ["Player", "Position", "Team", "Price", "G", "Avg", "Breakeven", "Likelihood %"] =
-             BreakEvens.parse_row(header_example)
+    assert %{
+             avg: "Avg",
+             breakeven: "Breakeven",
+             games: "G",
+             likelihood: "Likelihood %",
+             player: " Player",
+             position: "Position",
+             price: "Price",
+             team: "Team"
+           } = BreakEvens.parse_row(header_example)
   end
 
   test "td parse_row/1" do
@@ -63,7 +71,15 @@ defmodule AflFantasyScraperTest.BreakEvensTest do
          {"td", [{"align", "center"}], ["26%"]}
        ]}
 
-    assert ["M. Gawn", "RUC", "Demons", "$849,000", "2", "58.5", "171", "26%"] =
-             BreakEvens.parse_row(td_example)
+    assert %{
+             avg: "58.5",
+             breakeven: "171",
+             games: "2",
+             likelihood: "26%",
+             player: "M. Gawn",
+             position: "RUC",
+             price: "$849,000",
+             team: "Demons"
+           } = BreakEvens.parse_row(td_example)
   end
 end

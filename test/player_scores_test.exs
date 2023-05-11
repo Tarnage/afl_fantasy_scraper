@@ -52,19 +52,19 @@ defmodule PlayerScoresTest do
           ]}
        ]}
 
-    assert [
-             "Player",
-             "Position",
-             "Team",
-             "Price",
-             "G",
-             "Total",
-             "Average",
-             "3-Rnd Average",
-             "$/Average",
-             "$/3-Rnd Avg",
-             "Consistency"
-           ] = PlayerScores.parse_player(header_example)
+    assert %{
+             :player => "Player",
+             :position => "Position",
+             :team => "Team",
+             :price => "Price",
+             :games => "G",
+             :total => "Total",
+             :avg => "Average",
+             :three_rnd_avg => "3-Rnd Average",
+             :dollar_avg => "$/Average",
+             :dollar_three_rnd_avg => "$/3-Rnd Avg",
+             :consistency => "Consistency"
+           } = PlayerScores.parse_player(header_example)
 
     example_player =
       {"tr",
@@ -92,18 +92,18 @@ defmodule PlayerScoresTest do
          {"td", [{"align", "center"}], ["58"]}
        ]}
 
-    assert [
-             "Timothy English",
-             "RUC",
-             "Bulldogs",
-             "$1,040,000",
-             "8",
-             "990",
-             "123.8",
-             "126.3",
-             "$8,401",
-             "$8,234",
-             "58"
-           ] = PlayerScores.parse_player(example_player)
+    assert %{
+             :player => "Timothy English",
+             :position => "RUC",
+             :team => "Bulldogs",
+             :price => "$1,040,000",
+             :games => "8",
+             :total => "990",
+             :avg => "123.8",
+             :three_rnd_avg => "126.3",
+             :dollar_avg => "$8,401",
+             :dollar_three_rnd_avg => "$8,234",
+             :consistency => "58"
+           } = PlayerScores.parse_player(example_player)
   end
 end
