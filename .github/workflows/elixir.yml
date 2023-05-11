@@ -44,8 +44,15 @@ jobs:
   
   Publish:
     needs: build
-    runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    name: Publish ${{ github.ref }} to Hex ${{ matrix.otp_version }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        otp_version: [24.0.5]
+        os: [ubuntu-latest]
 
     steps:
       - name: Check out
