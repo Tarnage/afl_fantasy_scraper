@@ -42,13 +42,12 @@ jobs:
     - name: Run tests
       run: mix test
   
-  Publish:
+  Deploy:
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
-      - name: Check out
       - uses: actions/checkout@v3
           
       - name: Install dependencies
