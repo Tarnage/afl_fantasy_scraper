@@ -44,20 +44,22 @@ jobs:
   
   Publish:
     needs: build
+    runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
-    name: Publish ${{ github.ref }} to Hex ${{ matrix.otp_version }}
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        otp_version: [24.0.5]
-        os: [ubuntu-latest]
 
     steps:
       - name: Check out
         uses: actions/checkout@v3
-          
+
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          elixir-version: '1.14.4'
+          otp-version: '25.3.0'
+
+      - name: Install dependencies
+        run: mix deps.get
+        
       - name: Publish package to hex.pm
         uses: erlangpack/github-action@v3
         env:
