@@ -42,25 +42,18 @@ jobs:
     - name: Run tests
       run: mix test
   
-  deploy:
+  Publish:
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    
     steps:
+      - name: Check out
       - uses: actions/checkout@v3
-    
-      - name: Set up Elixir
-        uses: erlef/setup-beam@v1
-        with:
-          elixir-version: '1.14.4'
-          otp-version: '25.3.0'
           
       - name: Install dependencies
         run: mix deps.get
 
       - name: Publish package to hex.pm
-        uses: wesleimp/action-publish-hex@v1
+        uses: erlangpack/github-action@v3
         env:
           HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
